@@ -123,3 +123,16 @@ for epoch in range(num_epochs+1):
   print("Accuracy", acc)    
   print("Average Cost", avg_cost)
   
+# test
+with torch.no_grad(): # Gradient 학습 x
+
+    prediction = model(data[:30].float())
+    print(prediction.shape)
+    correct_prediction = torch.argmax(prediction, 1) == label[:30]
+    print(correct_prediction)
+    accuracy = correct_prediction.float().mean()
+    print('Accuracy:', accuracy.item())
+
+    print("check label", label[:30])
+    print("check prediction result", torch.argmax(prediction, 1))  
+  
