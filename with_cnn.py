@@ -81,9 +81,8 @@ class VGG_ORG(nn.Module):
         out = out.view(-1, 64*298)
 
         # fc layer    
-        out = self.fc1(out)
-        out = self.fc2(out)
-
+        out = F.relu(self.fc1(out))
+        out = F.relu(self.fc2(out))
 
         return out
 
